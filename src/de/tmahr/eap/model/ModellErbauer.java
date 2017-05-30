@@ -25,12 +25,15 @@ public class ModellErbauer implements Serializable {
     private final ArrayList<ElementImpl> ausloeser = new ArrayList<>();
     private final ArrayList<ElementImpl> elementNichtEingeordnet = new ArrayList<>();
 
+    private final ArrayList<ElementInterface> interfaces = new ArrayList<>();
+    private final ArrayList<ElementKlasse> klassen = new ArrayList<>();
+
     public Modell erstellen() {
         if (unaufgeloesteVerbindungen.size() > 0) {
             throw new IllegalStateException("Es existieren unaufeglöste Verbindungen");
         }
         ModellImpl modell = new ModellImpl(wurzelPakete, pakete, elemente,
-                verbindungen, zustaende, ausloeser);
+                verbindungen, zustaende, ausloeser, interfaces, klassen);
 
         return modell;
     }
@@ -70,6 +73,14 @@ public class ModellErbauer implements Serializable {
         elementMap.put(id, element);
         elementEinordnen(element);
         versucheVerbindungenAufzuloesen();
+        if (element.typ().equals("Class")) {
+            ElementKlasse ek = (ElementKlasse) element;
+            klassen.add(ek);
+        }
+        if (element.typ().equals("Interface")) {
+            ElementInterface ei = (ElementInterface) element;
+            interfaces.add(ei);
+        }
         return element;
     }
 
@@ -94,6 +105,14 @@ public class ModellErbauer implements Serializable {
         elementMap.put(id, element);
         elementEinordnen(element);
         versucheVerbindungenAufzuloesen();
+        if (element.typ().equals("Class")) {
+            ElementKlasse ek = (ElementKlasse) element;
+            klassen.add(ek);
+        }
+        if (element.typ().equals("Interface")) {
+            ElementInterface ei = (ElementInterface) element;
+            interfaces.add(ei);
+        }
         return element;
     }
 

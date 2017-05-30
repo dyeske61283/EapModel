@@ -16,8 +16,8 @@ class AttributImpl implements Attribut {
     private final String nameMitId;
     private final String typ;
     private final String visibility;
-    private final String isStatic;
-    private final String isConst;
+    private final boolean isStatic;
+    private final boolean isConst;
     private final String Default;
     private final Stereotypen stereotypen = new Stereotypen();
 
@@ -27,15 +27,15 @@ class AttributImpl implements Attribut {
         this.nameMitId = name + " {" + String.valueOf(id) + "}";
         this.typ = typ;
         this.visibility = visibility;
-        this.isStatic = "isStatic: " + String.valueOf(isStatic);
-        this.isConst = "isConst: " + String.valueOf(isConst);
+        this.isStatic = isStatic;
+        this.isConst = isConst;
         this.Default = Default;
     }
 
     @Override
     public String ToString(String tab) {
         StringBuilder sb = new StringBuilder();
-        sb.append("tab").append("Attribut ").append(isStatic).append(" ").append(isConst).append(" ").append(typ).append(" ").append(name);
+        sb.append("tab").append("Attribut ").append(typ).append(" ").append(name);
         if (stereotypen.sindStereotypenEnthalten()) {
             sb.append(" <<").append(stereotypen.toString()).append(">>");
         }
@@ -53,12 +53,12 @@ class AttributImpl implements Attribut {
     }
 
     @Override
-    public String isStatic() {
+    public boolean isStatic() {
         return isStatic;
     }
 
     @Override
-    public String isConst() {
+    public boolean isConst() {
         return isConst;
     }
 

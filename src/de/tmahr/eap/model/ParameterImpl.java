@@ -14,11 +14,11 @@ class ParameterImpl implements Parameter {
     private final String name;
     private final String type;
     private final String kind;
-    private final String isConst;
+    private final boolean isConst;
     private final Stereotypen stereotypen = new Stereotypen();
 
     ParameterImpl(String name, String type, String kind, boolean isConst) {
-        this.isConst = "isConst: " + String.valueOf(isConst);
+        this.isConst = isConst;
         this.kind = kind;
         this.name = name;
         this.type = type;
@@ -53,7 +53,7 @@ class ParameterImpl implements Parameter {
     }
 
     @Override
-    public String isConst() {
+    public boolean isConst() {
         return isConst;
     }
 

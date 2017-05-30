@@ -19,8 +19,8 @@ public interface Attribut extends Serializable, Stereotypisierbar{
     String nameExt();
     String typ();
     String visibility();
-    String isStatic();
-    String isConst();
+    boolean isStatic();
+    boolean isConst();
     String Default();
     int id();
     

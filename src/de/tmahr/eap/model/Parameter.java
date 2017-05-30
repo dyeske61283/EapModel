@@ -17,5 +17,5 @@ public interface Parameter extends Serializable, Stereotypisierbar {
     String nameExt();
     String type();
     String kind();
-    String isConst();
+    boolean isConst();
 }

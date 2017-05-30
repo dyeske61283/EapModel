@@ -20,10 +20,10 @@ public interface Methode extends Serializable, Stereotypisierbar{
     String nameExt();
     String visibility();
     int id();
-    String isStatic();
-    String isQuery();
-    String isPure();
-    String isLeaf();
-    String isConst();
-    String isAbstract();
+    boolean isStatic();
+    boolean isQuery();
+    boolean isPure();
+    boolean isLeaf();
+    boolean isConst();
+    boolean isAbstract();
 }

@@ -21,12 +21,12 @@ class MethodeImpl implements Methode {
     private final String name;
     private final String nameMitId;
     private final String visibility;
-    private final String isQuery;
-    private final String isLeaf;
-    private final String isStatic;
-    private final String isPure;
-    private final String isConst;
-    private final String isAbstract;
+    private final boolean isQuery;
+    private final boolean isLeaf;
+    private final boolean isStatic;
+    private final boolean isPure;
+    private final boolean isConst;
+    private final boolean isAbstract;
     private final Stereotypen stereotypen = new Stereotypen();
     private final ArrayList<ParameterImpl> parameter = new ArrayList<>();
 
@@ -36,20 +36,18 @@ class MethodeImpl implements Methode {
         this.name = name;
         this.nameMitId = name + " {" + String.valueOf(id) + "}";
         this.visibility = visibility;
-        this.isQuery = " isQuery: " + String.valueOf(isQuery);
-        this.isLeaf = " isLeaf: " + String.valueOf(isLeaf);
-        this.isStatic = " isStatic: " + String.valueOf(isStatic);
-        this.isPure = " isPure: " + String.valueOf(isPure);
-        this.isConst = " isConst: " + String.valueOf(isConst);
-        this.isAbstract = " isAbstract: " + String.valueOf(isAbstract);
+        this.isQuery = isQuery;
+        this.isLeaf = isLeaf;
+        this.isStatic = isStatic;
+        this.isPure = isPure;
+        this.isConst = isConst;
+        this.isAbstract = isAbstract;
     }
 
     @Override
     public String ToString(String tab) {
         StringBuilder sb = new StringBuilder();
         sb.append(tab).append("Methode ").append(visibility).append(" ").append(returnType).append(" ").append(name).append(" ");
-        sb.append(isQuery).append(isLeaf).append(isStatic).append(isPure).append(isConst).append(isAbstract);
-        
         
         return sb.toString();
     }
@@ -79,32 +77,32 @@ class MethodeImpl implements Methode {
     }
     
     @Override
-    public String isStatic() {
+    public boolean isStatic() {
         return this.isStatic;
     }
 
     @Override
-    public String isQuery() {
+    public boolean isQuery() {
         return this.isQuery;
     }
 
     @Override
-    public String isPure() {
+    public boolean isPure() {
         return this.isPure;
     }
 
     @Override
-    public String isLeaf() {
+    public boolean isLeaf() {
         return this.isLeaf;
     }
 
     @Override
-    public String isConst() {
+    public boolean isConst() {
         return this.isConst;
     }
 
     @Override
-    public String isAbstract() {
+    public boolean isAbstract() {
         return this.isAbstract;
     }
 

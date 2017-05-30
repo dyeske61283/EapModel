@@ -12,6 +12,8 @@ public interface Modell extends Serializable
     Paket[] wurzelPakete();
     Paket[] pakete();
     Element[] elemente();
+    ElementInterface[] interfaces();
+    ElementKlasse[] klassen();
     Element[] elemente(String typ);
     Verbindung[] verbindungen();
     Verbindung[] verbindungenAusgehend(Element anker, String verbindungstyp);
