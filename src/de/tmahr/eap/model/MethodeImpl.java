@@ -72,8 +72,8 @@ class MethodeImpl implements Methode {
         return this.id;
     }
 
-    public ArrayList<ParameterImpl> parameter(){
-        return this.parameter;
+    public ParameterImpl[] parameter(){
+        return this.parameter.toArray(new ParameterImpl[0]);
     }
     
     @Override

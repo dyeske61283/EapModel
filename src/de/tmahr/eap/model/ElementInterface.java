@@ -22,8 +22,8 @@ class ElementInterface extends ElementImpl {
         super(name, id, typ);
     }
 
-    ArrayList<Methode> methoden() {
-        return methoden;
+    Methode[] methoden() {
+        return methoden.toArray(new Methode[0]);
     }
 
     void fuegeHinzu(Methode m) {

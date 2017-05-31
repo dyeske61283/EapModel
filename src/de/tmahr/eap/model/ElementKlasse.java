@@ -27,8 +27,8 @@ public class ElementKlasse extends ElementInterface {
         attribute.add(a);
     }
 
-    ArrayList<Attribut> attribute() {
-        return attribute;
+    Attribut[] attribute() {
+        return attribute.toArray(new Attribut[0]);
     }
 
     @Override
